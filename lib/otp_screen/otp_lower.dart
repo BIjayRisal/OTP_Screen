@@ -8,16 +8,16 @@ class OtpLower extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Padding(
-        padding: EdgeInsets.all(10),
-        child: SingleChildScrollView(
+      child: Container(
+        color: Colors.white,
+        child: Padding(
+          padding: const EdgeInsets.all(10),
           child: Column(
             children: <Widget> [
-              SizedBox(height: 10,),
-              Text("Enter Verification Code", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
-              SizedBox(height: 40*2,),
+              const SizedBox(height: 10,),
+              // Text("Enter Verification Code", style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
+              SizedBox(height: 40,),
               OtpForm(),
-
               SizedBox(height: 20,),
               Text(
                 "Please enter OTP received by SMS",

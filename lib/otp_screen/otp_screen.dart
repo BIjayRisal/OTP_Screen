@@ -15,7 +15,7 @@ class OtpScreen extends StatelessWidget {
         backgroundColor: Colors.deepPurple,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back,
             color: Colors.white,
           ),
@@ -24,51 +24,41 @@ class OtpScreen extends StatelessWidget {
           },
         ),
       ),
-      body: Container(
-        width: double.infinity,
-        height: 220,
-        decoration: BoxDecoration(
-          color: Colors.deepPurple,
-          borderRadius: BorderRadius.only(
-              bottomRight: Radius.circular(20), bottomLeft: Radius.circular(20)),
-        ),
-        child: Column(
-          children: [
-            SizedBox(height: 10,),
-            // Header Image
-         Header(),
-            Expanded(child: Container(
-              margin: EdgeInsets.only(left: 10, right: 10, top: 45),
-              child: Container(
-                width: 350,
-                decoration: BoxDecoration(
+      body: Column(
+        children: [
+          Stack(
+            children: [
+              const Header(),
+              Positioned(
+                left: MediaQuery.of(context).size.width*0.09,
+                bottom: 0.0,
+                child:  Container(
+                  height:70,
+                  width: MediaQuery.of(context).size.width*0.82,
+                  decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(10),
-                      topRight: Radius.circular(10),
-                    )
+                      topLeft: Radius.circular(18.0),
+                      topRight: Radius.circular(18.0),
+                    ),
+                  ),
+                  child: Align(child: Padding(
+                    padding: const EdgeInsets.only(top: 30),
+                    child: const Text("Enter Verification Code", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
+                  )),
                 ),
-                child: Column(
-                  children: [
-                    SizedBox(height: 10,),
-                    OtpLower(),
-
-                  ],
-
-                ),
-
               ),
 
+            ],
+          ),
+          const OtpLower(),
 
-            ),
-
-            ),
+          ]
 
 
-          ],
-        ),
 
-      ),
+      )
+
     );
   }
 }

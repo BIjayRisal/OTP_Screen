@@ -6,14 +6,26 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(padding: EdgeInsets.all(20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          SvgPicture.asset('assets/svgimages/icon-mobile.svg',color: Colors.white, ),
-
-        ],
-      ),
+    return Stack(
+      children: [
+        Container(
+          width: double.infinity,
+          height: 200,
+          decoration: BoxDecoration(
+            color: Colors.deepPurple,
+            borderRadius: BorderRadius.only(
+                bottomRight: Radius.circular(20), bottomLeft: Radius.circular(20)),
+          ),
+        ),
+        
+        Align(
+          child: Container(
+            padding: EdgeInsets.only(top: 20),
+              child: SvgPicture.asset('assets/svgimages/icon-mobile.svg',
+                color: Colors.white,
+              )),
+        ),
+      ],
     );
   }
 }
